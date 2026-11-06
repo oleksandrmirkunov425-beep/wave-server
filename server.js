@@ -13,7 +13,6 @@ const crypto = require("crypto");
 const { WebSocketServer } = require("ws");
 
 const PORT = process.env.PORT || 8080;
-const SERVER_VERSION = 2;   // клієнт перевіряє це число: якщо менше за потрібне — каже, що сервер застарів
 const MAX_PLAYERS = 4;
 const ROOM_LETTERS = "ABCDEFGHJKLMNPQRSTUVWXYZ";
 const MAX_MSGS_PER_SEC = 250;
@@ -96,7 +95,7 @@ function handle(c, m) {
     c.name = cleanName(m.name);
     c.friends = new Set(Array.isArray(m.friends) ? m.friends.slice(0, 200).map(x => String(x).toUpperCase()) : []);
     byId.set(id, c);
-    return send(c, { t: "welcome", id, name: c.name, ver: SERVER_VERSION });
+    return send(c, { t: "welcome", id, name: c.name });
   }
   if (!c.id) return err(c, "Спочатку треба увійти");
 
