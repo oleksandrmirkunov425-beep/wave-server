@@ -1,7 +1,7 @@
 {
-  "name": "wave-game-server",
-  "version": "1.0.0",
-  "description": "Relay-сервер лобі на 2 гравців для Wave Game",
+  "name": "wave-server",
+  "version": "2.0.0",
+  "description": "Relay-сервер для онлайн-гри: друзі, запрошення, кімнати до 4 гравців",
   "main": "server.js",
   "scripts": { "start": "node server.js" },
   "engines": { "node": ">=18" },
